@@ -81,7 +81,8 @@ WINNER will display e. At end of game - display option to play again i. Shuffle 
 
 ## C - Code
 
-<summary>Spoilers!</summary>
+<details>
+<summary>Click here to see!</summary>
 >! Not yet no sneak peeks for you!
 </details>    
 >! Not yet no sneak peeks for you!
