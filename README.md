@@ -12,11 +12,11 @@ We want to play a single player (you the user) game of BlackJack against the hou
 
 Deck:
 
-The deck has to be 52 cards it has ranks and suits
-Suits are "Clubs", "Diamonds", "Hearts", or "Spades"
-Ranks are "Ace/1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack/10", "Queen/10", "King/10"
-"Ace" is always 11
-"King", "Queen", and "Jack"  are always 10
+* The deck has to be 52 cards it has ranks and suits
+* Suits are "Clubs", "Diamonds", "Hearts", or "Spades"
+* Ranks are "Ace/1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack/10", "Queen/10", "King/10"
+* "Ace" is always 11
+* "King", "Queen", and "Jack"  are always 10
 
 Both Player's Deck:
 
