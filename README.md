@@ -11,7 +11,6 @@ We want to play a single player (you the user) game of BlackJack against the hou
 (This is what we know)
 
 Deck:
-
 * The deck has to be 52 cards it has ranks and suits
 * Suits are "Clubs", "Diamonds", "Hearts", or "Spades"
 * Ranks are "Ace/1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack/10", "Queen/10", "King/10"
@@ -19,13 +18,11 @@ Deck:
 * "King", "Queen", and "Jack"  are always 10
 
 Both Player's Deck:
-
 * House's (computer's) cards must always be hidden from player until time to reveal hand
 * Player's (you the user's) cards must be visible to you
 
 Player's Choices:
-
-* Player has two choices they can either *hit* or *stand* depending on hand total
+* Player has two choices they can either **hit** or **stand** depending on hand total
 * If player has < 21 – player can hit or stand o 
 * If player has = 21 – player wins unless dealer ties. 
 * All ties, dealer wins
