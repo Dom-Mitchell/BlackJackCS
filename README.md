@@ -10,7 +10,7 @@ house = computer
 
 We want to play a single player (you the user) game of BlackJack against the house (computer), with the following requirements/constants:
 
-(This is what we know)
+<!--- (This is what we know) --->
 
 Deck:
 
