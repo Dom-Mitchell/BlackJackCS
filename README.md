@@ -3,7 +3,7 @@
 ## P – Problem
 
 <details>
-<summary>Key</summary>
+<summary>Key:</summary>
 single player = the user <br/>
 house = computer
 </details>    
@@ -20,7 +20,7 @@ Deck:
 * "Ace" is **always** 11
 * "King", "Queen", and "Jack"  are always 10
 
-Both Player's Deck:
+Rules:
 * House's (computer's) cards must always be hidden from player until time to reveal hand
 * Player's (you the user's) cards must be visible to you
 
