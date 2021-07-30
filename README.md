@@ -86,11 +86,31 @@ Player wins!
 
 ## A – Algorithm
 
-Create Cards a. List of ranks b. List of suits c. Merge these two list to create Newcards d. Add new cards a deck
+Create Cards: 
+* List of ranks
+* List of suits
+Merge these two list to create deck list 
 Assign Cards a value
-Create 2 hands a. 1 – player b. 1 – dealer
-Deal cards into both hands a. Player cards shown b. Dealers cards hidden
-Depending on card total a. Player will choose to stand i. Revealing dealer card b. Player will choose to hit i. Adding and showing new card to player’s hand
+
+Create 2 hands:
+* 1 – player
+* 1 – dealer
+Deal cards into both hands
+* Player cards shown
+* Dealers cards hidden
+
+Depending on card total
+
+<details>
+<summary>Player stands</summary>
+Dealer's cards are revealed
+</details>
+
+
+
+* Player will choose to stand 
+* Revealing dealer card 
+Player will choose to hit i. Adding and showing new card to player’s hand
 Player will bust if card value > 21 and BUSTED will display
 Player will choose to HIT or STAND if card value is < 21
 Player will win if card value = 21 and dealer does not tie, and WINNER will display c. Dealer will choose to HIT i. Adding and showing new card to dealers hand
