@@ -2,17 +2,11 @@
 
 ## P – Problem
 
-Key:
-
 <details>
 <summary>Key</summary>
 single player = the user <br/>
 house = computer
 </details>    
-
-
-* single player = the user
-* house = computer
 
 We want to play a single player (you the user) game of BlackJack against the house (computer), with the following requirements/constants:
 
