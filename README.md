@@ -28,14 +28,14 @@ Rules:
 
 Player's Choices:
 * Player has two choices they can either **hit** or **stand** depending on hand total
-* If player has < 21, then player can hit or stand 
+* If player has <br 21, then player can hit or stand 
 * If player has = 21, then player wins unless dealer ties. 
 * All ties, dealer wins
 * If player has > 21, then player busts, and dealer wins
 
 Dealer's Choices:
 * Dealer should be given option to **hit**, depending on hand total
-* If dealer has < 17, then dealer can hit
+* If dealer has <br 17, then dealer can hit
 * If dealers cards = 17 - 21, then dealer wins, unless dealer ties
 * All ties, dealer wins
 * If dealer has > 21, then dealer busts, and player wins
@@ -71,15 +71,15 @@ Player wins!
 
 ## D – Data Structure
 
-We will need a deck of 52 cards as a string, then we will parse it into an int
-Create ranks 
-Create suits
-Merge ranks and suits into new card
-Add new card to a deck
-Shuffle cards
-Create a class/method to add values to the cards using int
-Deal two hands 1st to dealer – keep cards hidden and 2nd to player – reveal cards
-Assign the hands a value
+We will need a deck of 52 cards as a string, then we will parse it into an int </br>
+Create ranks </br>
+Create suits </br>
+Merge ranks and suits into new card </br>
+Add new card to a deck </br>
+Shuffle cards </br>
+Create a class/method to add values to the cards using int </br>
+Deal two hands 1st to dealer – keep cards hidden and 2nd to player – reveal cards </br>
+Assign the hands a value </br>
 Value for hand will display either STAND, HIT, or WINNER
 
 ## A – Algorithm
