@@ -71,16 +71,16 @@ Player wins!
 
 ## D – Data Structure
 
-We will need a deck of 52 cards as a string, then we will parse it into an int </br>
-Create ranks </br>
-Create suits </br>
-Merge ranks and suits into new card </br>
-Add new card to a deck </br>
-Shuffle cards </br>
-Create a class/method to add values to the cards using int </br>
-Deal two hands 1st to dealer – keep cards hidden and 2nd to player – reveal cards </br>
-Assign the hands a value </br>
-Value for hand will display either STAND, HIT, or WINNER
+* We will need a deck of 52 cards as a string, then we will parse it into an int
+* Create ranks
+* Create suits
+* Merge ranks and suits into new card
+* Add new card to a deck
+* Shuffle cards
+* Create a class/method to add values to the cards using int
+* Deal two hands 1st to dealer – keep cards hidden and 2nd to player – reveal cards
+* Assign the hands a value
+* Value for hand will display either STAND, HIT, or WINNER
 
 ## A – Algorithm
 
