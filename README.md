@@ -3,6 +3,14 @@
 ## P – Problem
 
 Key:
+
+<details>
+<summary>Key</summary>
+* single player = the user
+* house = computer
+</details>    
+
+
 * single player = the user
 * house = computer
 
