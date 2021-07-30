@@ -107,11 +107,16 @@ Depending on card total
 Dealer's cards are revealed
 </details>
 
+<details>
+<summary>Player hits</summary>
+Player gets card added to hand
+</details>
 
 
 * Player will choose to stand 
 * Revealing dealer card 
-Player will choose to hit i. Adding and showing new card to player’s hand
+* Player will choose to hit
+Adding and showing new card to player’s hand
 Player will bust if card value > 21 and BUSTED will display
 Player will choose to HIT or STAND if card value is < 21
 Player will win if card value = 21 and dealer does not tie, and WINNER will display c. Dealer will choose to HIT i. Adding and showing new card to dealers hand
