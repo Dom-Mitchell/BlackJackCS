@@ -13,7 +13,7 @@ We want to play a single player (you the user) game of BlackJack against the hou
 Deck:
 * The deck has to be 52 cards it has ranks and suits
 * Suits are "Clubs", "Diamonds", "Hearts", or "Spades"
-* Ranks are "Ace/1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack/10", "Queen/10", "King/10"
+* Ranks are "Ace/11", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack/10", "Queen/10", "King/10"
 * "Ace" is always 11
 * "King", "Queen", and "Jack"  are always 10
 
@@ -23,13 +23,13 @@ Both Player's Deck:
 
 Player's Choices:
 * Player has two choices they can either **hit** or **stand** depending on hand total
-* If player has < 21 – player can hit or stand o 
-* If player has = 21 – player wins unless dealer ties. 
+* If player has < 21, then player can hit or stand 
+* If player has = 21, then player wins unless dealer ties. 
 * All ties, dealer wins
-* If player has > 21 – player BUST, and dealer wins
+* If player has > 21, then player busts, and dealer wins
 
 Gameplay:
-When player stands or bust the dealer will reveal its hand
+* When player stands or bust the dealer will reveal its hand
 
 Dealer should be given option to hit, depending on hand total o If dealer has < 17 – dealer can hit o If dealer has = 17 - 21 – dealer wins, unless dealer ties. All ties, dealer wins o If dealer has > 21 – dealer BUST, and player wins
 
