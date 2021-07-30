@@ -1,5 +1,7 @@
 # PEDA – BlackKJackCS
 
+<!--- Now I learned some markdown its very similar to html/css for webpages --->
+
 ## P – Problem
 
 <details>
@@ -46,8 +48,36 @@ Gameplay:
 
 ## E – Examples
 
-If player is dealt 21 on first deal – player wins
-Player’s hand has 5hearts & 10Clubs – card total is 15 o Player may STAND or HIT – HITS o Player dealt 5clubs – hand value is now 20 o Player hand value is now 20 and STANDS o Dealer cards are revealed o Dealer hand totals 16 with a 10diamonds & 6hearts o Dealer must hit and next card revealed o Dealer is dealt a 2clubs – hand total is now 18 o Dealer must stand and player wins
+<details>
+<summary>Example 1</summary>
+If player is dealt 21 on first deal, then player wins <br/>
+Unless dealer also has 21
+</details>  
+
+<details>
+<summary>Example 2</summary>
+Player’s hand has 5 of Hearts & 10 of Clubs, so card total is 15 <br/>
+Player may <strong>stand</strong> or <strong>hit</strong> <br/>
+Player <strong>hits</strong> player is dealt 5 of Clubs, so hand value is now 20 <br/>
+Player's hand value is now 20, so player <strong>stands</strong> <br/>
+Dealer's cards are revealed <br/>
+Dealer's hand has 10 of Diamonds & 6 of Hearts, so card total is 16 <br/>
+Dealer must <strong>hit</strong> <br/>
+Dealer <strong>hits</strong> and is dealt 2 of Clubs <br/>
+Dealer's hand value is now 18 <br/>
+Dealer must stand </br>
+Player wins!
+</details>  
+
+Player’s hand has 5 of hearts & 10 of Clubs – card total is 15 
+Player may STAND or HIT
+HITS Player is dealt 5 of clubs hand value is now 20 
+Player hand value is now 20 and STANDS
+Dealer cards are revealed 
+Dealer hand totals 16 with a 10 of diamonds & 6 of hearts
+Dealer must hit and next card revealed o Dealer is dealt a 2 of clubs 
+hand total is now 18
+Dealer must stand and player wins
 
 ## D – Data Structure
 
