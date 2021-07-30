@@ -2,7 +2,7 @@
 
 ## P – Problem
 
-Key
+Key:
 * single player = the user
 * house = computer
 
@@ -11,10 +11,11 @@ We want to play a single player (you the user) game of BlackJack against the hou
 (This is what we know)
 
 Deck:
-* The deck has to be 52 cards it has ranks and suits
+
+* The deck has to be 52 cards and it has ranks and suits
 * Suits are "Clubs", "Diamonds", "Hearts", or "Spades"
 * Ranks are "Ace/11", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack/10", "Queen/10", "King/10"
-* "Ace" is always 11
+* "Ace" is **always** 11
 * "King", "Queen", and "Jack"  are always 10
 
 Both Player's Deck:
@@ -28,18 +29,18 @@ Player's Choices:
 * All ties, dealer wins
 * If player has > 21, then player busts, and dealer wins
 
+Dealer's Choices:
+* Dealer should be given option to **hit**, depending on hand total
+* If dealer has < 17, then dealer can hit
+* If dealers cards = 17 - 21, then dealer wins, unless dealer ties
+* All ties, dealer wins
+* If dealer has > 21, then dealer busts, and player wins
+
 Gameplay:
 * When player stands or bust the dealer will reveal its hand
-
-Dealer should be given option to hit, depending on hand total o If dealer has < 17 – dealer can hit o If dealer has = 17 - 21 – dealer wins, unless dealer ties. All ties, dealer wins o If dealer has > 21 – dealer BUST, and player wins
-
-Player closer to 21 w/o going over WINS
-
-Aces should be considered equal to 11
-
-Winner should display after each game for either the player or the house
-
-A REPLAY option should be available at the end of each game with new deck of cards and hands
+* Player closer to 21 without going over wins
+* Winner should display after each game for either the player or the house
+* There should be a **replay** option  at the end of each game with a new deck of cards and hands
 
 E – Examples
 
