@@ -96,11 +96,11 @@ Create 2 hands:
 * 1 – player
 * 1 – dealer
 
-Deal cards into both hands
+Deal cards into both hands:
 * Player cards shown
 * Dealers cards hidden
 
-Depending on card total
+Gameplay:
 
 <details>
 <summary>Player stands</summary>
@@ -112,20 +112,31 @@ Dealer's cards are revealed
 Player gets card added to hand
 </details>
 
-Gameplay:
-* Player will bust if card value > 21 
+<details>
+<summary>Dealer hits</summary>
+Dealer gets card added to hand
+</details>
+
+Player:
+* Player will bust if hand value > 21 
 * Display <strong>bust</strong> to screen
-
 * Player can continue to <strong>hit</strong> or <strong>stand</strong> if card value is < 21
-
-* Player will win if card value = 21 <strong>unless</strong> dealer ties 
+* Player will win if hand value = 21 <strong>unless</strong> dealer ties 
 * Display <strong>winner</strong>
 
-* Dealer chooses to <strong>hit</strong> Adding a new card to dealers hand
-If total card value is < 17 a. Dealer will bust if card value > 21 and BUSTED will display d. Dealer will choose to STAND i. If total card value is > 17 Dealer will STAND
-Dealer will win if card value >17 & <= 21 and card value exceeds players card value
-dealer wins all ties
-WINNER will display e. At end of game - display option to play again i. Shuffle deck ii. Deal two new hands
+Dealer:
+* Dealer can <strong>hit</strong> or <strong>stand</strong> based on hand value If hand value is < 17 
+* Dealer must hit if hand value is < 17
+* Dealer will bust if hand value > 21
+* Display <strong>bust</strong> to screen
+* Dealer will <strong>stand</strong> If hand value is > 17
+* Dealer will win if hand value > 17 & <= 21 <strong>unless</strong> player has higher hand value
+* Dealer wins all ties
+* Display <strong>winner</strong>
+
+End of Game:
+* Display option to play again
+* Shuffle deck then deal two new hands
 
 ## C - Code
 
