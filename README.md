@@ -112,14 +112,16 @@ Dealer's cards are revealed
 Player gets card added to hand
 </details>
 
+Gameplay:
+* Player will bust if card value > 21 
+* Display <strong>bust</strong> to screen
 
-* Player will choose to stand 
-* Revealing dealer card 
-* Player will choose to hit
-Adding and showing new card to player’s hand
-Player will bust if card value > 21 and BUSTED will display
-Player will choose to HIT or STAND if card value is < 21
-Player will win if card value = 21 and dealer does not tie, and WINNER will display c. Dealer will choose to HIT i. Adding and showing new card to dealers hand
+* Player can continue to <strong>hit</strong> or <strong>stand</strong> if card value is < 21
+
+* Player will win if card value = 21 <strong>unless</strong> dealer ties 
+* Display <strong>winner</strong>
+
+* Dealer chooses to <strong>hit</strong> Adding a new card to dealers hand
 If total card value is < 17 a. Dealer will bust if card value > 21 and BUSTED will display d. Dealer will choose to STAND i. If total card value is > 17 Dealer will STAND
 Dealer will win if card value >17 & <= 21 and card value exceeds players card value
 dealer wins all ties
