@@ -6,8 +6,8 @@ Key:
 
 <details>
 <summary>Key</summary>
-* single player = the user
-* house = computer
+single player = the user <br/><br/>
+house = computer
 </details>    
 
 
