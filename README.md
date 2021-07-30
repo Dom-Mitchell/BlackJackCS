@@ -83,6 +83,5 @@ WINNER will display e. At end of game - display option to play again i. Shuffle 
 
 <details>
 <summary>Click here to see!</summary>
->! Not yet no sneak peeks for you!
+Not yet no sneak peeks for you!
 </details>    
->! Not yet no sneak peeks for you!
