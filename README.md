@@ -20,16 +20,16 @@ Deck:
 
 Both Player's Deck:
 
-House's (computer's) cards must always be hidden from player until time to reveal hand
-Player's (you the user's) cards must be visible to you
+* House's (computer's) cards must always be hidden from player until time to reveal hand
+* Player's (you the user's) cards must be visible to you
 
 Player's Choices:
 
-Player has two choices they can either hit or stand depending on hand total
-If player has < 21 – player can hit or stand o 
-If player has = 21 – player wins unless dealer ties. 
-All ties, dealer wins
-If player has > 21 – player BUST, and dealer wins
+* Player has two choices they can either *hit* or *stand* depending on hand total
+* If player has < 21 – player can hit or stand o 
+* If player has = 21 – player wins unless dealer ties. 
+* All ties, dealer wins
+* If player has > 21 – player BUST, and dealer wins
 
 Gameplay:
 When player stands or bust the dealer will reveal its hand
