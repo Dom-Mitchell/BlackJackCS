@@ -80,7 +80,7 @@ Player wins!
 * Create a class/method to add values to the cards using int
 * Deal two hands 1st to dealer – keep cards hidden and 2nd to player – reveal cards
 * Assign the hands a value
-* Value for hand will display either STAND, HIT, or WINNER
+* Value for hand will display either <strong>stand</strong>, <strong>hit</strong>, or <strong>winner</strong>
 
 ## A – Algorithm
 
