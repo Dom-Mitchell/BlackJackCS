@@ -1,4 +1,4 @@
-# PEDA – BlackKJackCS
+# PEDAC – BlackKJackCS
 
 <!--- Now I learned some markdown its very similar to html/css for webpages --->
 
