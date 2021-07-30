@@ -42,11 +42,12 @@ Gameplay:
 * Winner should display after each game for either the player or the house
 * There should be a **replay** option  at the end of each game with a new deck of cards and hands
 
-E – Examples
+## E – Examples
 
 If player is dealt 21 on first deal – player wins
 Player’s hand has 5hearts & 10Clubs – card total is 15 o Player may STAND or HIT – HITS o Player dealt 5clubs – hand value is now 20 o Player hand value is now 20 and STANDS o Dealer cards are revealed o Dealer hand totals 16 with a 10diamonds & 6hearts o Dealer must hit and next card revealed o Dealer is dealt a 2clubs – hand total is now 18 o Dealer must stand and player wins
-D – Data Structure
+
+## D – Data Structure
 
 We will need a deck of 52 cards as a string and parsed into int o Create ranks o Create suits o Merge ranks and suits into new card o Add new card to a deck
 Shuffle cards
@@ -54,7 +55,8 @@ Create a class/method to add values to the cards using int
 Deal two hands o 1st dealer – keep cards hidden o 2nd player – reveal cards
 Assign the hands a value
 Value for hand will display either STAND, HIT, or WINNER
-A – Algorithm
+
+## A – Algorithm
 
 Create Cards a. List of ranks b. List of suits c. Merge these two list to create Newcards d. Add new cards a deck
 Assign Cards a value
@@ -68,3 +70,7 @@ If total card value is < 17 a. Dealer will bust if card value > 21 and BUSTED wi
 Dealer will win if card value >17 & <= 21 and card value exceeds players card value
 dealer wins all ties
 WINNER will display e. At end of game - display option to play again i. Shuffle deck ii. Deal two new hands
+
+## C - Code
+
+>! Not yet no sneak peeks for you!
