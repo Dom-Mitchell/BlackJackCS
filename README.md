@@ -94,7 +94,8 @@ Assign Cards a value
 
 Create 2 hands:
 * 1 – player
-* 1 – dealer </br>
+* 1 – dealer
+
 Deal cards into both hands
 * Player cards shown
 * Dealers cards hidden
