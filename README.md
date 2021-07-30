@@ -1,10 +1,8 @@
-# BlackJackCS
-
-PEDA – BlackKJackCS
+# PEDA – BlackKJackCS
 
 ## P – Problem
-single player = the user
-house = computer
+* single player = the user
+* house = computer
 
 We want to play a single player (you the user) game of BlackJack against the house (computer), with the following requirements/constants:
 
