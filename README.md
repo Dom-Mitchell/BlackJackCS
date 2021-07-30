@@ -50,7 +50,7 @@ Gameplay:
 
 <details>
 <summary>Example 1</summary>
-If player is dealt 21 on first deal, then player wins <br/>
+Player is dealt 21 on first deal, so player wins <br/>
 Unless dealer also has 21
 </details>  
 
@@ -69,22 +69,16 @@ Dealer must stand </br>
 Player wins!
 </details>  
 
-Player’s hand has 5 of hearts & 10 of Clubs – card total is 15 
-Player may STAND or HIT
-HITS Player is dealt 5 of clubs hand value is now 20 
-Player hand value is now 20 and STANDS
-Dealer cards are revealed 
-Dealer hand totals 16 with a 10 of diamonds & 6 of hearts
-Dealer must hit and next card revealed o Dealer is dealt a 2 of clubs 
-hand total is now 18
-Dealer must stand and player wins
-
 ## D – Data Structure
 
-We will need a deck of 52 cards as a string and parsed into int o Create ranks o Create suits o Merge ranks and suits into new card o Add new card to a deck
+We will need a deck of 52 cards as a string, then we will parse it into an int
+Create ranks 
+Create suits
+Merge ranks and suits into new card
+Add new card to a deck
 Shuffle cards
 Create a class/method to add values to the cards using int
-Deal two hands o 1st dealer – keep cards hidden o 2nd player – reveal cards
+Deal two hands 1st to dealer – keep cards hidden and 2nd to player – reveal cards
 Assign the hands a value
 Value for hand will display either STAND, HIT, or WINNER
 
