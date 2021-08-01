@@ -1,15 +1,62 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace BlackJackCS
 {
+    class Card
+    {
+
+        // public string Deck { get; set; }
+        public string Suit { get; set; }
+        public string Face { get; set; }
+
+        static void Value()
+        {
+
+        }
+
+        // static List<string> ShuffleDeck()
+        // {
+        //     // Variables
+        //     // index & deck
+        //     var i = 0;
+        //     var deck = DeckCreation();
+
+        //     // Shuffling deck
+        //     for (i = deck.Count - 1; i >= 0; i--)
+        //     {
+        //         // indexTwo equal to random # in range 0 to i
+        //         var indexTwo = new Random().Next(0, i);
+
+        //         // Swap i of deck with indexTwo
+        //         var swapCards = deck[i];
+        //         deck[i] = deck[indexTwo];
+        //         deck[indexTwo] = swapCards;
+        //     }
+
+        //     // Print shuffled deck to screen
+        //     // Test Case
+        //     foreach (var shuffledCard in deck)
+        //     {
+        //         //Console.WriteLine($"{shuffledCard}");
+        //     }
+
+        //     // Returns shuffled deck
+        //     return deck;
+        // }
+
+
+
+
+
+    }
+
     class Hand
     {
 
     }
-    class Card
-    {
 
-    }
 
 
 
@@ -38,7 +85,7 @@ namespace BlackJackCS
 
         static void StartGame(string userName)
         {
-            // Variable used for while loop
+            // Variable used for while loops
             var answer = false;
             var ready = false;
 
@@ -133,7 +180,100 @@ namespace BlackJackCS
 
         static void PlayGame()
         {
+            // Variable used for while loop
+            var quitGame = false;
 
+            while (!quitGame)
+            {
+                //DealCards();
+                var handValue = 0;
+                Console.WriteLine($"\nWould you like to HIT or STAND? You hand value is {handValue}");
+                var usersChoice = Console.ReadLine();
+
+
+                if (usersChoice.ToLower() == "h" || usersChoice.ToLower() == "hit")
+                {
+                    //DealCards();
+                    Console.WriteLine($"\nYou have decided to HIT. Your new hand value is {handValue}");
+                }
+                else if (usersChoice.ToLower() == "s" || usersChoice.ToLower() == "stand")
+                {
+                    Console.WriteLine($"\nYou have decided to STAND. Your hand value is {handValue}");
+                }
+                else
+                {
+                    // Prints message to screen if users answer wasn't valid
+                    Console.WriteLine($"\nYour answer was invalid! Please try again.");
+                }
+                quitGame = true;
+
+            }
+
+        }
+
+        static List<Card> DeckCreation()
+        {
+            // Variables
+            // 52 cards in a deck
+            // 4 suits
+            // 13 cards per suit
+            // var deck = new List<Card>();
+            var suits = new List<string>();
+            var ranks = new List<string>();
+            var i = 0;
+
+            // Loop to add values to suites list
+            for (i = 0; i < 4; i++)
+            {
+                // Logic to check if the suites are already in list
+                if (!suits.Contains("Clubs") || !suits.Contains("Diamonds") || !suits.Contains("Hearts") || !suits.Contains("Spades"))
+                {
+                    suits.Add("Clubs");
+                    suits.Add("Diamonds");
+                    suits.Add("Hearts");
+                    suits.Add("Spades");
+                }
+            }
+
+            // Loop to add values to ranks list
+            for (i = 0; i < 13; i++)
+            {
+                // Logic to check if the ranks are already in list
+                if (!ranks.Contains("Ace") || !ranks.Contains("2") || !ranks.Contains("3") || !ranks.Contains("4") || !ranks.Contains("5") || !ranks.Contains("6") || !ranks.Contains("7") || !ranks.Contains("8") || !ranks.Contains("9") || !ranks.Contains("10") || !ranks.Contains("Jack") || !ranks.Contains("Queen") || !ranks.Contains("King"))
+                {
+                    ranks.Add("Ace");
+                    ranks.Add("2");
+                    ranks.Add("3");
+                    ranks.Add("4");
+                    ranks.Add("5");
+                    ranks.Add("6");
+                    ranks.Add("7");
+                    ranks.Add("8");
+                    ranks.Add("9");
+                    ranks.Add("10");
+                    ranks.Add("Jack");
+                    ranks.Add("Queen");
+                    ranks.Add("King");
+                }
+            }
+
+
+            var deck = new List<Card>();
+            // Loop to make deck with suites and values/ranks
+            foreach (var cardRanks in ranks)
+            {
+                foreach (var cardSuits in suits)
+                {
+                    // Formatting cards in deck & adding them to the list
+                    var card = new Card() { Suit = string.Join(", ", suits), Face = string.Join(", ", ranks) };
+                    // Test Case
+                    //Console.WriteLine($"{card}");
+                    deck.Add(card);
+                }
+            }
+
+            // Returns deck fully formatted
+            return deck;
         }
 
 
@@ -144,6 +284,7 @@ namespace BlackJackCS
             StartGame(userName);
 
 
+            // PlayGame();
         }
     }
 }
