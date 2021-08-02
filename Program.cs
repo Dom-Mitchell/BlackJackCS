@@ -6,60 +6,92 @@ namespace BlackJackCS
 {
     class Card
     {
-
-        // public string Deck { get; set; }
+        // Card objects
+        public string Rank { get; set; }
         public string Suit { get; set; }
-        public string Face { get; set; }
 
-        static void Value()
+        // Method to determine the value of a card
+        public int Value()
         {
+
+            // Set cards equal to there values
+            switch (Rank)
+            {
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                case "10":
+                    // Ranks equal to printed value
+                    return int.Parse(Rank);
+
+                case "Jack":
+                case "Queen":
+                case "King":
+                    // Royalty all equal to 10
+                    return 10;
+
+                case "Ace":
+                    return 11;
+
+                default:
+                    // Not a card
+                    return 0;
+            }
 
         }
 
-        // static List<string> ShuffleDeck()
-        // {
-        //     // Variables
-        //     // index & deck
-        //     var i = 0;
-        //     var deck = DeckCreation();
-
-        //     // Shuffling deck
-        //     for (i = deck.Count - 1; i >= 0; i--)
-        //     {
-        //         // indexTwo equal to random # in range 0 to i
-        //         var indexTwo = new Random().Next(0, i);
-
-        //         // Swap i of deck with indexTwo
-        //         var swapCards = deck[i];
-        //         deck[i] = deck[indexTwo];
-        //         deck[indexTwo] = swapCards;
-        //     }
-
-        //     // Print shuffled deck to screen
-        //     // Test Case
-        //     foreach (var shuffledCard in deck)
-        //     {
-        //         //Console.WriteLine($"{shuffledCard}");
-        //     }
-
-        //     // Returns shuffled deck
-        //     return deck;
-        // }
-
-
-
-
+        // Method to format the deck to show point value or a card
+        override public string ToString()
+        {
+            // Format cards for readability
+            return $"The {Rank} of {Suit}";
+        }
 
     }
 
     class Hand
     {
+        // Hand objects
+        public List<Card> IndividualCards { get; set; } = new List<Card>();
+
+        public void Receive(Card newCard)
+        {
+            // Add this card to the hand
+            IndividualCards.Add(newCard);
+        }
+
+        public int TotalHandValue()
+        {
+            // Variables
+            var HandValue = 0;
+
+            // Find the hand value from the value of the card(s) added together
+            foreach (var card in IndividualCards)
+            {
+                HandValue += card.Value();
+            }
+
+            // Returns total hand value
+            return HandValue;
+        }
+
+        public void PrintCardsAndTotal(string handName)
+        {
+            // 
+            Console.WriteLine($"\n{handName}, your cards are:");
+            Console.WriteLine(String.Join("\n", IndividualCards));
+
+            //     and the TotalValue of their Hand
+            Console.WriteLine($"The total value of your hand is: {TotalHandValue()}");
+
+        }
 
     }
-
-
-
-
 
     class Program
     {
@@ -149,6 +181,7 @@ namespace BlackJackCS
                 }
 
             }
+
         }
 
         static void Rules()
@@ -178,46 +211,13 @@ namespace BlackJackCS
             Console.WriteLine("#####################################################################");
         }
 
-        static void PlayGame()
-        {
-            // Variable used for while loop
-            var quitGame = false;
-
-            while (!quitGame)
-            {
-                //DealCards();
-                var handValue = 0;
-                Console.WriteLine($"\nWould you like to HIT or STAND? You hand value is {handValue}");
-                var usersChoice = Console.ReadLine();
-
-
-                if (usersChoice.ToLower() == "h" || usersChoice.ToLower() == "hit")
-                {
-                    //DealCards();
-                    Console.WriteLine($"\nYou have decided to HIT. Your new hand value is {handValue}");
-                }
-                else if (usersChoice.ToLower() == "s" || usersChoice.ToLower() == "stand")
-                {
-                    Console.WriteLine($"\nYou have decided to STAND. Your hand value is {handValue}");
-                }
-                else
-                {
-                    // Prints message to screen if users answer wasn't valid
-                    Console.WriteLine($"\nYour answer was invalid! Please try again.");
-                }
-                quitGame = true;
-
-            }
-
-        }
-
         static List<Card> DeckCreation()
         {
             // Variables
             // 52 cards in a deck
             // 4 suits
             // 13 cards per suit
-            // var deck = new List<Card>();
+            var deck = new List<Card>();
             var suits = new List<string>();
             var ranks = new List<string>();
             var i = 0;
@@ -257,34 +257,228 @@ namespace BlackJackCS
                 }
             }
 
-
-            var deck = new List<Card>();
             // Loop to make deck with suites and values/ranks
             foreach (var cardRanks in ranks)
             {
                 foreach (var cardSuits in suits)
                 {
                     // Formatting cards in deck & adding them to the list
-                    var card = new Card() { Suit = string.Join(", ", suits), Face = string.Join(", ", ranks) };
+                    var card = new Card() { Rank = cardRanks, Suit = cardSuits };
                     // Test Case
-                    //Console.WriteLine($"{card}");
+                    //Console.WriteLine($"{card.Rank} of {card.Suit}");
                     deck.Add(card);
                 }
             }
-
-            // Returns deck fully formatted
+            // Returns deck to card class
             return deck;
         }
 
+        static List<Card> ShuffleDeck()
+        {
+            // Variables
+            // index & deck
+            var i = 0;
+            var deck = DeckCreation();
+
+            // Shuffling deck
+            for (i = deck.Count - 1; i >= 0; i--)
+            {
+                // indexTwo equal to random # in range 0 to i
+                var indexTwo = new Random().Next(0, i);
+
+                // Swap i of deck with indexTwo
+                var swapCards = deck[i];
+                deck[i] = deck[indexTwo];
+                deck[indexTwo] = swapCards;
+            }
+
+            // Print shuffled deck to screen
+            // Test Case
+            foreach (var shuffledCard in deck)
+            {
+                //Console.WriteLine($"{shuffledCard.Rank} of {shuffledCard.Suit}");
+            }
+
+            // Returns shuffled deck to card class
+            return deck;
+        }
+
+        static Tuple<Hand, Hand> DealFirstTwoCards(List<Card> deck)
+        {
+            var i = 0;
+            //var deck = ShuffleDeck();
+
+            // Create hand for player and house
+            var card = deck[i];
+            var player = new Hand();
+            var house = new Hand();
+
+            // Give player starting cards
+            for (i = 0; i < 2; i++)
+            {
+                card = deck[i];
+                // Test Case
+                //Console.WriteLine($"{card.Rank} of {card.Suit}");
+                deck.Remove(card);
+                player.Receive(card);
+
+            }
+
+            // Give house starting cards
+            for (i = 0; i < 2; i++)
+            {
+                card = deck[i];
+                // Test Case
+                //Console.WriteLine($"{card.Rank} of  {card.Suit}");
+                deck.Remove(card);
+                house.Receive(card);
+            }
+
+            // Format players cards into tuple to return house and player
+            var playersCards = Tuple.Create(player, house);
+            //Console.WriteLine(deck.Count);
+
+
+            // Returns players Cards
+            return playersCards;
+        }
+
+        static void PlayGame()
+        {
+
+            var usersChoice = "";
+            var quitGame = false;
+
+            while (!quitGame)
+            {
+                Console.Clear();
+
+                // Variable used for while loop
+                var deck = ShuffleDeck();
+                var hands = DealFirstTwoCards(deck);
+
+                var playerHand = hands.Item1;
+                var dealerHand = hands.Item2;
+
+                while (playerHand.TotalHandValue() < 21 && usersChoice.ToLower() != "stand" || usersChoice.ToLower() != "s")
+                {
+                    // Show Player there cards
+                    playerHand.PrintCardsAndTotal("Player");
+
+                    //playerHand.PrintCardsAndTotal("House");
+
+                    Console.WriteLine($"\nWould you like to HIT or STAND? (Hit/Stand");
+                    usersChoice = Console.ReadLine();
+
+
+                    if (usersChoice.ToLower() == "h" || usersChoice.ToLower() == "hit")
+                    {
+                        //DealCards();
+                        Console.WriteLine($"\n\nYou have decided to HIT.");
+
+                        var newCard = deck[0];
+                        deck.Remove(newCard);
+
+                        playerHand.Receive(newCard);
+                        playerHand.PrintCardsAndTotal("Player");
+
+                        // Test Case
+                        //Console.WriteLine(deck.Count);
+                    }
+                    //playerHand.PrintCardsAndTotal("Player");
+                    else if (usersChoice.ToLower() == "s" || usersChoice.ToLower() == "stand")
+                    {
+                        Console.WriteLine($"\n\nYou have decided to STAND.");
+
+                        playerHand.PrintCardsAndTotal("Player");
+
+
+
+                        // Test Case
+                        Console.WriteLine(deck.Count);
+
+                        //break;
+                    }
+                    else
+                    {
+                        // Prints message to screen if users answer wasn't valid
+                        Console.WriteLine($"\nYour answer was invalid! Please try again.");
+                    }
+
+                    while (playerHand.TotalHandValue() <= 21 && dealerHand.TotalHandValue() <= 17)
+                    {
+                        var card = deck[0];
+                        deck.Remove(card);
+
+                        dealerHand.Receive(card);
+
+                    }
+                    dealerHand.PrintCardsAndTotal("Dealer");
+
+                    if (playerHand.TotalHandValue() > 21)
+                    {
+                        Console.WriteLine("\nYou have BUSTED, Dealer wins!");
+                        break;
+                    }
+                    else if (dealerHand.TotalHandValue() > 21)
+                    {
+                        Console.WriteLine("\nDealer has BUSTED, You win!");
+                        break;
+                    }
+                    else if (dealerHand.TotalHandValue() > playerHand.TotalHandValue())
+                    {
+                        Console.WriteLine("\nDealer's hand is GREATER, Dealer wins!");
+                        break;
+                    }
+                    // 19. If the dealer's hand TotalValue is more than the player's hand TotalValue then show "DEALER WINS", else show "PLAYER WINS"
+                    else if (playerHand.TotalHandValue() > dealerHand.TotalHandValue())
+                    {
+                        Console.WriteLine("\nYour hand is GREATER, You win!");
+                        break;
+                    }
+                    else
+                    {
+                        // 20. If the value of the hands are even, show "DEALER WINS"
+                        Console.WriteLine("\nYou have TIED, Dealer wins!");
+                        break;
+                    }
+                }
+
+                Console.WriteLine("\nWould you like to play again? (Yes/No)");
+                var answer = Console.ReadLine();
+                Console.WriteLine();
+
+                if (answer.ToLower() == "yes" || answer.ToLower() == "y")
+                {
+                    quitGame = false;
+                }
+                else if (answer.ToLower() == "no" || answer.ToLower() == "n")
+                {
+                    quitGame = true;
+                }
+                else
+                {
+                    // Prints message to screen if users answer wasn't valid
+                    Console.WriteLine($"\nYour answer was invalid! Please try again.");
+                }
+
+            }
+
+        }
 
 
         static void Main(string[] args)
         {
-            var userName = Greeting();
-            StartGame(userName);
+            // var userName = Greeting();
+            // StartGame(userName);
+
+            //DeckCreation();
+            // var deck = ShuffleDeck();
+            // DealFirstTwoCards(deck);
 
 
-            // PlayGame();
+
+            PlayGame();
         }
     }
 }
