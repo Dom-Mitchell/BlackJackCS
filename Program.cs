@@ -144,7 +144,7 @@ namespace BlackJackCS
                         if (start.ToLower() == "yes" || start.ToLower() == "y")
                         {
                             // Display game & exit nested while loop
-                            PlayGame();
+                            PlayGame(userName);
                             ready = true;
                         }
                         else if (start.ToLower() == "no" || start.ToLower() == "n")
@@ -344,7 +344,7 @@ namespace BlackJackCS
             return playersCards;
         }
 
-        static void PlayGame()
+        static void PlayGame(string userName)
         {
             // Variables used for while loop
             var usersChoice = "";
@@ -473,6 +473,7 @@ namespace BlackJackCS
                 else if (answer.ToLower() == "no" || answer.ToLower() == "n")
                 {
                     // User wanted to quit so game ends
+                    ExitMessage(userName);
                     quitGame = true;
                 }
                 else
@@ -489,7 +490,10 @@ namespace BlackJackCS
         static void Main(string[] args)
         {
             // Call play game method
-            PlayGame();
+            var name = Greeting();
+            StartGame(name);
+
+            //PlayGame();
         }
     }
 }
