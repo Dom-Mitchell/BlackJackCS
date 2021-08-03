@@ -55,15 +55,17 @@ namespace BlackJackCS
 
     class Hand
     {
-        // Hand objects
+        // Hand object of individual cards
         public List<Card> IndividualCards { get; set; } = new List<Card>();
 
+        // Takes a singular card & add it to hand
         public void Receive(Card newCard)
         {
             // Add this card to the hand
             IndividualCards.Add(newCard);
         }
 
+        // Calculates Hand Value
         public int TotalHandValue()
         {
             // Variables
@@ -79,6 +81,7 @@ namespace BlackJackCS
             return HandValue;
         }
 
+        // Format players hand & returns total value of hand
         public void PrintCardsAndTotal(string handName)
         {
             // Prints cards for dealer OR player
@@ -93,7 +96,6 @@ namespace BlackJackCS
 
     class Program
     {
-
         static string Greeting()
         {
             // Ask for users name & greet them
@@ -465,7 +467,6 @@ namespace BlackJackCS
             }
 
         }
-
 
         static void Main(string[] args)
         {
