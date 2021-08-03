@@ -34,6 +34,11 @@ namespace BlackJackCS
                     return 10;
 
                 case "Ace":
+                    // if (Rank == "Ace")
+                    // {
+                    //     return 1;
+                    // }
+
                     // Ace equal to 11 for now...
                     return 11;
 
@@ -81,6 +86,14 @@ namespace BlackJackCS
             return HandValue;
         }
 
+        // Calculates Dealers first card hand value
+        public int TotalFirstCardValue()
+        {
+            // Returns total hand value of dealers first card
+            return IndividualCards[0].Value();
+        }
+
+
         // Format players hand & returns total value of hand
         public void PrintCardsAndTotal(string handName)
         {
@@ -90,6 +103,29 @@ namespace BlackJackCS
 
             // Prints total value of hand
             Console.WriteLine($"The total value of your hand is: {TotalHandValue()}");
+        }
+
+        // Format players hand & returns total value of hand
+        public void PrintDealersFirstCard(string handName)
+        {
+            // Prints dealers first card
+            Console.WriteLine($"\n{handName}, your first card is:");
+            Console.WriteLine(String.Join("\n", IndividualCards[0]));
+
+            // Prints total value of hand for dealers first card
+            Console.WriteLine($"The total value of your hand is: {TotalFirstCardValue()}");
+        }
+
+        public bool CanSplit()
+        {
+
+            // if (IndividualCards[0].Rank == IndividualCards[1].Rank)
+            // {
+            //     return true;
+            // }
+            // return false;
+
+            return IndividualCards[0].Rank == IndividualCards[1].Rank;
         }
 
     }
@@ -328,6 +364,7 @@ namespace BlackJackCS
             return playersCards;
         }
 
+
         static void PlayGame(string userName)
         {
             // Variables used for while loop
@@ -351,12 +388,71 @@ namespace BlackJackCS
                 // Logic to determine if user has busted & when they choose to stand
                 while (playerHand.TotalHandValue() < 21 && usersChoice.ToLower() != "stand" || usersChoice.ToLower() != "s")
                 {
-                    // Show Player there cards
-                    playerHand.PrintCardsAndTotal("Player");
+                    // Variables used for while loop
+                    var userInvalid = true;
 
-                    // Prompt user to hit or stand
-                    Console.WriteLine($"\nWould you like to HIT or STAND? (Hit/Stand");
-                    usersChoice = Console.ReadLine();
+                    // Logic to determine if user chose hit or stand
+                    while (userInvalid)
+                    {
+                        // Show Player there cards
+                        playerHand.PrintCardsAndTotal("Player");
+
+                        // Display dealers first card
+                        dealerHand.PrintDealersFirstCard("Dealer");
+
+                        var userSplits = false;
+                        while (!userSplits)
+                        {
+                            if (playerHand.CanSplit())
+                            {
+
+                                //var splitHand = DealFirstTwoCards(deck);
+
+                                // Prompt user to hit or stand
+                                Console.WriteLine($"\nYou can SPLIT, would you like to? (Yes/No)");
+                                var userSplit = Console.ReadLine().ToLower();
+
+                                if (userSplit == "yes" || userSplit == "y")
+                                {
+                                    var splitHand = DealFirstTwoCards(deck);
+                                    userSplits = true;
+                                }
+                                else if (userSplit == "no" || userSplit == "n")
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    // Show Player there cards
+                                    playerHand.PrintCardsAndTotal("Player");
+
+                                    // Display dealers first card
+                                    dealerHand.PrintDealersFirstCard("Dealer");
+
+                                    // Prints message to screen if users answer wasn't valid
+                                    Console.WriteLine($"\nYour answer was invalid! Please try again.");
+                                }
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                        // Prompt user to hit or stand
+                        Console.WriteLine($"\nWould you like to HIT or STAND? (Hit/Stand)");
+                        usersChoice = Console.ReadLine().ToLower();
+
+                        // If user didn't choose hit or stand
+                        userInvalid = (usersChoice != "hit" && usersChoice != "stand" && usersChoice != "h" && usersChoice != "s");
+
+                        // Logic to determine if user didn't choose hit or stand
+                        if (userInvalid)
+                        {
+                            // Prints message to screen if users answer wasn't valid
+                            Console.WriteLine($"\nYour answer was invalid! Please try again.");
+                        }
+                    }
 
                     // Logic to determine if user chose hit or stand
                     if (usersChoice.ToLower() == "h" || usersChoice.ToLower() == "hit")
@@ -380,12 +476,6 @@ namespace BlackJackCS
 
                         // Display players hand
                         playerHand.PrintCardsAndTotal("Player");
-                    }
-                    // Logic to determine if user chose hit or stand
-                    else
-                    {
-                        // Prints message to screen if users answer wasn't valid
-                        Console.WriteLine($"\nYour answer was invalid! Please try again.");
                     }
 
                     // Make dealer draw until they have 17 or more as there hand value
