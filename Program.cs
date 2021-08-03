@@ -45,7 +45,7 @@ namespace BlackJackCS
 
         }
 
-        // Method to format the deck to show point value or a card
+        // Method to format the deck to show point value of a card
         override public string ToString()
         {
             // Format cards for readability
@@ -82,11 +82,11 @@ namespace BlackJackCS
 
         public void PrintCardsAndTotal(string handName)
         {
-            // 
+            // Prints cards for dealer OR player
             Console.WriteLine($"\n{handName}, your cards are:");
             Console.WriteLine(String.Join("\n", IndividualCards));
 
-            //     and the TotalValue of their Hand
+            // Prints total value of hand
             Console.WriteLine($"The total value of your hand is: {TotalHandValue()}");
 
         }
@@ -117,7 +117,7 @@ namespace BlackJackCS
 
         static void StartGame(string userName)
         {
-            // Variable used for while loops
+            // Variables used for while loops
             var answer = false;
             var ready = false;
 
@@ -305,11 +305,11 @@ namespace BlackJackCS
 
         static Tuple<Hand, Hand> DealFirstTwoCards(List<Card> deck)
         {
+            // Variables used for indexing List of Card
             var i = 0;
-            //var deck = ShuffleDeck();
-
-            // Create hand for player and house
             var card = deck[i];
+
+            // Variables to create hand for player & house
             var player = new Hand();
             var house = new Hand();
 
@@ -334,70 +334,76 @@ namespace BlackJackCS
                 house.Receive(card);
             }
 
-            // Format players cards into tuple to return house and player
+            // Format both players cards into tuple to return house & player
             var playersCards = Tuple.Create(player, house);
+
+            // Test Case
             //Console.WriteLine(deck.Count);
 
-
-            // Returns players Cards
+            // Returns both players starting cards
             return playersCards;
         }
 
         static void PlayGame()
         {
-
+            // Variables used for while loop
             var usersChoice = "";
             var quitGame = false;
 
+            // Logic to determine if user want to continue playing
             while (!quitGame)
             {
                 Console.Clear();
 
-                // Variable used for while loop
+                // Variables used to create & shuffle a deck of cards then deal 2 cards to start game
                 var deck = ShuffleDeck();
                 var hands = DealFirstTwoCards(deck);
 
+                // Variables used to grab player & dealer first 2 cards
                 var playerHand = hands.Item1;
                 var dealerHand = hands.Item2;
 
+                // Logic to determine if user has busted & when they choose to stand
                 while (playerHand.TotalHandValue() < 21 && usersChoice.ToLower() != "stand" || usersChoice.ToLower() != "s")
                 {
                     // Show Player there cards
                     playerHand.PrintCardsAndTotal("Player");
 
+                    // Test Case
                     //playerHand.PrintCardsAndTotal("House");
 
+                    // Prompt user to hit or stand
                     Console.WriteLine($"\nWould you like to HIT or STAND? (Hit/Stand");
                     usersChoice = Console.ReadLine();
 
-
+                    // Logic to determine if user chose hit or stand
                     if (usersChoice.ToLower() == "h" || usersChoice.ToLower() == "hit")
                     {
-                        //DealCards();
+                        // User decides to hit
                         Console.WriteLine($"\n\nYou have decided to HIT.");
 
+                        // Take a new card out of deck
                         var newCard = deck[0];
                         deck.Remove(newCard);
 
+                        // Put that new card into players hand & display player hand
                         playerHand.Receive(newCard);
                         playerHand.PrintCardsAndTotal("Player");
 
                         // Test Case
                         //Console.WriteLine(deck.Count);
                     }
-                    //playerHand.PrintCardsAndTotal("Player");
+                    // Logic to determine if user chose hit or stand
                     else if (usersChoice.ToLower() == "s" || usersChoice.ToLower() == "stand")
                     {
+                        // User decided to stand
                         Console.WriteLine($"\n\nYou have decided to STAND.");
 
+                        // Display players hand
                         playerHand.PrintCardsAndTotal("Player");
 
-
-
                         // Test Case
-                        Console.WriteLine(deck.Count);
-
-                        //break;
+                        //Console.WriteLine(deck.Count);
                     }
                     else
                     {
@@ -405,55 +411,68 @@ namespace BlackJackCS
                         Console.WriteLine($"\nYour answer was invalid! Please try again.");
                     }
 
+                    // Make dealer draw until they have 17 or more as there hand value
                     while (playerHand.TotalHandValue() <= 21 && dealerHand.TotalHandValue() <= 17)
                     {
+                        // Take a card out of deck
                         var card = deck[0];
                         deck.Remove(card);
 
+                        // Add that card to dealers hand
                         dealerHand.Receive(card);
 
                     }
+
+                    // Display dealers hand
                     dealerHand.PrintCardsAndTotal("Dealer");
 
+                    // Logic to determine different game outcomes
                     if (playerHand.TotalHandValue() > 21)
                     {
+                        // User has busted
                         Console.WriteLine("\nYou have BUSTED, Dealer wins!");
                         break;
                     }
                     else if (dealerHand.TotalHandValue() > 21)
                     {
+                        // Dealer has busted
                         Console.WriteLine("\nDealer has BUSTED, You win!");
                         break;
                     }
                     else if (dealerHand.TotalHandValue() > playerHand.TotalHandValue())
                     {
+                        // Dealers hand value is greater than players
                         Console.WriteLine("\nDealer's hand is GREATER, Dealer wins!");
                         break;
                     }
-                    // 19. If the dealer's hand TotalValue is more than the player's hand TotalValue then show "DEALER WINS", else show "PLAYER WINS"
                     else if (playerHand.TotalHandValue() > dealerHand.TotalHandValue())
                     {
+                        // Players hand value is greater than dealers
                         Console.WriteLine("\nYour hand is GREATER, You win!");
                         break;
                     }
                     else
                     {
-                        // 20. If the value of the hands are even, show "DEALER WINS"
+                        // Player and dealer have tied
                         Console.WriteLine("\nYou have TIED, Dealer wins!");
                         break;
                     }
                 }
 
+                // Prompt user to play again
                 Console.WriteLine("\nWould you like to play again? (Yes/No)");
                 var answer = Console.ReadLine();
                 Console.WriteLine();
 
+                // Logic to determine if user wanted to play again
                 if (answer.ToLower() == "yes" || answer.ToLower() == "y")
                 {
+                    // User wanted to play again so game continues
                     quitGame = false;
                 }
                 else if (answer.ToLower() == "no" || answer.ToLower() == "n")
                 {
+                    // User wanted to quit so game ends
                     quitGame = true;
                 }
                 else
@@ -469,15 +488,7 @@ namespace BlackJackCS
 
         static void Main(string[] args)
         {
-            // var userName = Greeting();
-            // StartGame(userName);
-
-            //DeckCreation();
-            // var deck = ShuffleDeck();
-            // DealFirstTwoCards(deck);
-
-
-
+            // Call play game method
             PlayGame();
         }
     }
