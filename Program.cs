@@ -264,8 +264,6 @@ namespace BlackJackCS
                 {
                     // Formatting cards in deck & adding them to the list
                     var card = new Card() { Rank = cardRanks, Suit = cardSuits };
-                    // Test Case
-                    //Console.WriteLine($"{card.Rank} of {card.Suit}");
                     deck.Add(card);
                 }
             }
@@ -292,13 +290,6 @@ namespace BlackJackCS
                 deck[indexTwo] = swapCards;
             }
 
-            // Print shuffled deck to screen
-            // Test Case
-            foreach (var shuffledCard in deck)
-            {
-                //Console.WriteLine($"{shuffledCard.Rank} of {shuffledCard.Suit}");
-            }
-
             // Returns shuffled deck to card class
             return deck;
         }
@@ -317,8 +308,6 @@ namespace BlackJackCS
             for (i = 0; i < 2; i++)
             {
                 card = deck[i];
-                // Test Case
-                //Console.WriteLine($"{card.Rank} of {card.Suit}");
                 deck.Remove(card);
                 player.Receive(card);
 
@@ -328,17 +317,11 @@ namespace BlackJackCS
             for (i = 0; i < 2; i++)
             {
                 card = deck[i];
-                // Test Case
-                //Console.WriteLine($"{card.Rank} of  {card.Suit}");
                 deck.Remove(card);
                 house.Receive(card);
             }
-
             // Format both players cards into tuple to return house & player
             var playersCards = Tuple.Create(player, house);
-
-            // Test Case
-            //Console.WriteLine(deck.Count);
 
             // Returns both players starting cards
             return playersCards;
@@ -369,9 +352,6 @@ namespace BlackJackCS
                     // Show Player there cards
                     playerHand.PrintCardsAndTotal("Player");
 
-                    // Test Case
-                    //playerHand.PrintCardsAndTotal("House");
-
                     // Prompt user to hit or stand
                     Console.WriteLine($"\nWould you like to HIT or STAND? (Hit/Stand");
                     usersChoice = Console.ReadLine();
@@ -389,9 +369,6 @@ namespace BlackJackCS
                         // Put that new card into players hand & display player hand
                         playerHand.Receive(newCard);
                         playerHand.PrintCardsAndTotal("Player");
-
-                        // Test Case
-                        //Console.WriteLine(deck.Count);
                     }
                     // Logic to determine if user chose hit or stand
                     else if (usersChoice.ToLower() == "s" || usersChoice.ToLower() == "stand")
@@ -401,9 +378,6 @@ namespace BlackJackCS
 
                         // Display players hand
                         playerHand.PrintCardsAndTotal("Player");
-
-                        // Test Case
-                        //Console.WriteLine(deck.Count);
                     }
                     else
                     {
@@ -492,8 +466,6 @@ namespace BlackJackCS
             // Call play game method
             var name = Greeting();
             StartGame(name);
-
-            //PlayGame();
         }
     }
 }
