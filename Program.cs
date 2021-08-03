@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace BlackJackCS
 {
@@ -13,7 +12,6 @@ namespace BlackJackCS
         // Method to determine the value of a card
         public int Value()
         {
-
             // Set cards equal to there values
             switch (Rank)
             {
@@ -36,6 +34,7 @@ namespace BlackJackCS
                     return 10;
 
                 case "Ace":
+                    // Ace equal to 11 for now...
                     return 11;
 
                 default:
@@ -88,7 +87,6 @@ namespace BlackJackCS
 
             // Prints total value of hand
             Console.WriteLine($"The total value of your hand is: {TotalHandValue()}");
-
         }
 
     }
@@ -105,7 +103,6 @@ namespace BlackJackCS
 
             // Return users name
             return userName;
-
         }
 
         static void ExitMessage(string userName)
@@ -141,18 +138,21 @@ namespace BlackJackCS
                         Console.WriteLine("\nAre you ready to start? (Yes/No)");
                         var start = Console.ReadLine();
 
+                        // Logic to determine if user is ready to start game
                         if (start.ToLower() == "yes" || start.ToLower() == "y")
                         {
                             // Display game & exit nested while loop
                             PlayGame(userName);
                             ready = true;
                         }
+                        // Logic to determine if user is ready to start game
                         else if (start.ToLower() == "no" || start.ToLower() == "n")
                         {
                             // Display rules
                             Console.WriteLine();
                             Rules();
                         }
+                        // Logic to determine if user is ready to start game
                         else
                         {
                             // Display rules
@@ -165,15 +165,15 @@ namespace BlackJackCS
                     }
                     // Exit while loop
                     answer = true;
-
-
                 }
+                // Logic to determine whether or not user wanted to play
                 else if (userAnswer.ToLower() == "no" || userAnswer.ToLower() == "n")
                 {
                     // Diplay Exit message & exit while loop
                     ExitMessage(userName);
                     answer = true;
                 }
+                // Logic to determine whether or not user wanted to play
                 else
                 {
                     // Prints message to screen if users answer wasn't valid
@@ -310,7 +310,6 @@ namespace BlackJackCS
                 card = deck[i];
                 deck.Remove(card);
                 player.Receive(card);
-
             }
 
             // Give house starting cards
@@ -336,6 +335,7 @@ namespace BlackJackCS
             // Logic to determine if user want to continue playing
             while (!quitGame)
             {
+                // Clears screen before every game
                 Console.Clear();
 
                 // Variables used to create & shuffle a deck of cards then deal 2 cards to start game
@@ -379,6 +379,7 @@ namespace BlackJackCS
                         // Display players hand
                         playerHand.PrintCardsAndTotal("Player");
                     }
+                    // Logic to determine if user chose hit or stand
                     else
                     {
                         // Prints message to screen if users answer wasn't valid
@@ -394,7 +395,6 @@ namespace BlackJackCS
 
                         // Add that card to dealers hand
                         dealerHand.Receive(card);
-
                     }
 
                     // Display dealers hand
@@ -407,24 +407,28 @@ namespace BlackJackCS
                         Console.WriteLine("\nYou have BUSTED, Dealer wins!");
                         break;
                     }
+                    // Logic to determine different game outcomes
                     else if (dealerHand.TotalHandValue() > 21)
                     {
                         // Dealer has busted
                         Console.WriteLine("\nDealer has BUSTED, You win!");
                         break;
                     }
+                    // Logic to determine different game outcomes
                     else if (dealerHand.TotalHandValue() > playerHand.TotalHandValue())
                     {
                         // Dealers hand value is greater than players
                         Console.WriteLine("\nDealer's hand is GREATER, Dealer wins!");
                         break;
                     }
+                    // Logic to determine different game outcomes
                     else if (playerHand.TotalHandValue() > dealerHand.TotalHandValue())
                     {
                         // Players hand value is greater than dealers
                         Console.WriteLine("\nYour hand is GREATER, You win!");
                         break;
                     }
+                    // Logic to determine different game outcomes
                     else
                     {
                         // Player and dealer have tied
@@ -444,12 +448,14 @@ namespace BlackJackCS
                     // User wanted to play again so game continues
                     quitGame = false;
                 }
+                // Logic to determine if user wanted to play again
                 else if (answer.ToLower() == "no" || answer.ToLower() == "n")
                 {
                     // User wanted to quit so game ends
                     ExitMessage(userName);
                     quitGame = true;
                 }
+                // Logic to determine if user wanted to play again
                 else
                 {
                     // Prints message to screen if users answer wasn't valid
